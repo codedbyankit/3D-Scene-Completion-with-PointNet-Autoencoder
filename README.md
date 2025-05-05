@@ -9,7 +9,7 @@ This project started as an exploration of how neural networks can complete missi
 - Lets you **visualize inputs and reconstructions** to see how well it’s doing.
 
 ## ✨ Why I Built It
-I’ve always been fascinated by how models “fill in the blanks” — whether in text, images, or 3D. This project was a way to dive deeper into **geometric deep learning** and get some hands-on experience with **autoencoders**, **data augmentation**, and **shape understanding**. It also ties well with research trends around **generative models** and **3D perception**.
+I’ve always found it fascinating how models can "fill in the blanks," whether it’s with text, images, or 3D data. This project gave me the perfect opportunity to explore that idea further, especially in the context of geometric deep learning. It allowed me to dive into working with autoencoders, data augmentation, and understanding 3D shapes. On top of that, it connects really well with the current research trends around generative models and 3D perception.
 
 ## 📂 Project Structure
 - **train.py**: Main training loop.
