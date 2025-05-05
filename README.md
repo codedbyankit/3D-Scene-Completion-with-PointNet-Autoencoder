@@ -1,62 +1,75 @@
+# 3D Scene Completion with PointNet Autoencoder
+
 This project started as an exploration of how neural networks can complete missing parts of 3D scenes — like reconstructing a broken vase or restoring incomplete scans. It’s built around a simple PointNet-style autoencoder trained on partial point clouds from ShapeNet.
 
-🧠 What It Does
-Takes in partial 3D point clouds (like damaged or occluded objects).
+## 🧠 What It Does
+- Takes in partial 3D point clouds (like damaged or occluded objects).
+- Learns to generate complete versions using a lightweight neural model.
+- Evaluates performance using **Chamfer Distance**.
+- Lets you **visualize inputs and reconstructions** to see how well it’s doing.
 
-Learns to generate complete versions using a lightweight neural model.
+## ✨ Why I Built It
+I’ve always been fascinated by how models “fill in the blanks” — whether in text, images, or 3D. This project was a way to dive deeper into **geometric deep learning** and get some hands-on experience with **autoencoders**, **data augmentation**, and **shape understanding**. It also ties well with research trends around **generative models** and **3D perception**.
 
-Evaluates performance using Chamfer Distance.
+## 📂 Project Structure
+- **train.py**: Main training loop.
+- **test.py**: Evaluate the model on unseen data.
+- **inference.py**: Run the model on a new `.ply` file.
+- **model.py**: The PointNet-style autoencoder.
+- **dataset.py**: Loads and occludes ShapeNet data.
+- **utils.py**: Chamfer distance, visualizations, etc.
+- **config.py**: Centralized configuration.
+- **visualize_results.py**: Compare before/after shapes.
+- **requirements.txt**: Dependencies.
+- **README.md**: You’re reading it :).
 
-Lets you visualize inputs and reconstructions to see how well it’s doing.
+## 📦 Dataset
+Uses partial point clouds derived from **ShapeNet**. You’ll need to prepare or download `.ply` files and place them under `./data/ShapeNet/`.
 
-✨ Why I Built It
-I’ve always been fascinated by how models “fill in the blanks” — whether in text, images, or 3D. This project was a way to dive deeper into geometric deep learning and get some hands-on experience with autoencoders, data augmentation, and shape understanding. Also, it ties well with research trends around generative models and 3D perception.
+## 🧪 Training
+To train the model, simply run:
 
-📂 Project Structure
-train.py: Main training loop
-
-test.py: Evaluate the model on unseen data
-
-inference.py: Run the model on a new .ply file
-
-model.py: The PointNet-style autoencoder
-
-dataset.py: Loads and occludes ShapeNet data
-
-utils.py: Chamfer distance, visualizations, etc.
-
-config.py: Centralized configuration
-
-visualize_results.py: Compare before/after shapes
-
-requirements.txt: Dependencies
-
-README.md: You’re reading it :)
-
-📦 Dataset
-Uses partial point clouds derived from ShapeNet. You’ll need to prepare or download .ply files and place them under ./data/ShapeNet/.
-🧪 Training 
-
----bash 
+```bash
 python train.py
------
-You can tweak hyperparameters from config.py. The model trains in under an hour on a decent GPU.
 
-📊 Evaluation
----Bash
+## 📊 Evaluation
+To evaluate the model's performance, run:
+
+```bash
 python test.py
-Outputs average Chamfer Distance, a simple way to measure shape similarity.
+```
 
-🧍 Inference
----bash
-python inference.py
-Pass a .ply file and it reconstructs the complete shape. You can visualize results using Open3D.
+## 📊 Evaluation
+To evaluate the model's performance, run:
+```bash
+python test.py
+```
+This will output the average Chamfer Distance, a simple way to measure shape similarity.
+## 🧍 Inference & Try It Out
+For inference on a new .ply file, run:
+```bash
+python inference.py --input_path path/to/your/file.ply --output_path path/to/save/reconstructed.ply
+```
+It will reconstruct the complete shape, and you can visualize the results using Open3D. If you want to visualize the results:
 
-🚀 Try It Out
+```
+python visualize_results.py --original path/to/your/file.ply --reconstructed path/to/save/reconstructed.ply
+```
+This script will display the original and reconstructed 3D shapes for comparison.
+
+## 🚀 Try It Out
 Make sure you have the dependencies:
----bash
+```
 pip install -r requirements.txt
-Done All set to Go....
+
+```
+okay guyz you are ready to goo !
+
+## License
+This project is licensed under the MIT License.
+
+
+
 
 
 
